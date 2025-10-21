@@ -485,23 +485,6 @@ knitr::kable(comparison_table,
              col.names = c("Model", "RMSE (Train)", "RMSE (Test)", "R² (Train)", "R² (Test)", "RMSE Improvement vs Linear Regression"),
              align = c("l", "r", "r", "r", "r", "c"))
 
-# --- Additional Analysis ---
-cat("\n## Key Insights:\n")
-cat("• Linear Regression RMSE (Test):", round(lm_rmse_test, 0), "\n")
-cat("• Random Forest (1 tree) RMSE (Test):", round(rf_1_rmse_test, 0), "- Improvement:", round((lm_rmse_test - rf_1_rmse_test)/lm_rmse_test * 100, 1), "%\n")
-cat("• Random Forest (100 trees) RMSE (Test):", round(rf_100_rmse_test, 0), "- Improvement:", round((lm_rmse_test - rf_100_rmse_test)/lm_rmse_test * 100, 1), "%\n")
-cat("• Random Forest (1000 trees) RMSE (Test):", round(rf_1000_rmse_test, 0), "- Improvement:", round((lm_rmse_test - rf_1000_rmse_test)/lm_rmse_test * 100, 1), "%\n")
-
-cat("\n## Training vs Test Performance:\n")
-cat("• Linear Regression - Train RMSE:", round(lm_rmse_train, 0), "| Test RMSE:", round(lm_rmse_test, 0), "| Train R²:", round(lm_r2_train, 3), "| Test R²:", round(lm_r2_test, 3), "\n")
-cat("• Random Forest (1 tree) - Train RMSE:", round(rf_1_rmse_train, 0), "| Test RMSE:", round(rf_1_rmse_test, 0), "| Train R²:", round(rf_1_r2_train, 3), "| Test R²:", round(rf_1_r2_test, 3), "\n")
-cat("• Random Forest (100 trees) - Train RMSE:", round(rf_100_rmse_train, 0), "| Test RMSE:", round(rf_100_rmse_test, 0), "| Train R²:", round(rf_100_r2_train, 3), "| Test R²:", round(rf_100_r2_test, 3), "\n")
-cat("• Random Forest (1000 trees) - Train RMSE:", round(rf_1000_rmse_train, 0), "| Test RMSE:", round(rf_1000_rmse_test, 0), "| Train R²:", round(rf_1000_r2_train, 3), "| Test R²:", round(rf_1000_r2_test, 3), "\n")
-
-cat("\n## Performance Analysis:\n")
-cat("• Going from 1 tree to 100 trees improves RMSE by:", round((rf_1_rmse_test - rf_100_rmse_test)/rf_1_rmse_test * 100, 1), "%\n")
-cat("• Going from 100 trees to 1000 trees improves RMSE by:", round((rf_100_rmse_test - rf_1000_rmse_test)/rf_100_rmse_test * 100, 1), "%\n")
-cat("• Switching from Linear Regression to 100-tree Random Forest improves RMSE by:", round((lm_rmse_test - rf_100_rmse_test)/lm_rmse_test * 100, 1), "%\n")
 ```
 
 **Analysis:** The comparison reveals significant performance improvements when switching from linear regression to random forests, with diminishing returns as the number of trees increases. Linear regression serves as a reasonable baseline, but random forests consistently outperform it across all configurations. The jump from 1 tree to 100 trees shows substantial improvement, demonstrating the power of ensemble learning. However, the improvement from 100 to 1000 trees is much smaller, suggesting a practical sweet spot around 100-500 trees for this dataset. The training vs test performance shows that random forests maintain good generalization (small train/test gap) compared to individual decision trees. For real-world applications, the choice between linear regression and random forests depends on the trade-off between interpretability (linear regression wins) and performance (random forests win). When prediction accuracy is critical and the relationships are complex and non-linear, random forests are worth the added complexity.

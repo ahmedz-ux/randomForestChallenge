@@ -86,46 +86,10 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🎯 Note on Python Usage
+<span class="screen-reader-only">Important</span>R
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You have not been coached through setting up a Python environment. <strong>If using Python</strong> You will need to set up a Python environment and install the necessary packages to run this code - takes about 15 minutes; see <a href="https://quarto.org/docs/projects/virtual-environments.html">https://quarto.org/docs/projects/virtual-environments.html</a>. Alternatively, delete the Python code and only leave the remaining R code that is provided. You can see the executed Python output at my GitHub pages site: <a href="https://flyaflya.github.io/randomForestChallenge/">https://flyaflya.github.io/randomForestChallenge/</a>.</p>
-</div>
-</div>
-<section id="the-problem-can-many-weak-learners-beat-one-strong-learner" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem-can-many-weak-learners-beat-one-strong-learner">The Problem: Can Many Weak Learners Beat One Strong Learner?</h2>
-<p><strong>Core Question:</strong> How does the number of trees in a random forest affect predictive accuracy, and how do random forests compare to simpler approaches like linear regression?</p>
-<p><strong>The Challenge:</strong> Individual decision trees are “weak learners” with limited predictive power. Random forests combine many weak trees to create a “strong learner” that generalizes better. But how many trees do we need? Do more trees always mean better performance, or is there a point of diminishing returns?</p>
-<p><strong>Our Approach:</strong> We’ll compare random forests with different numbers of trees against linear regression and individual decision trees to understand the trade-offs between complexity and performance <strong>for this dataset</strong>.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>⚠️ AI Partnership Required
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This challenge pushes boundaries intentionally. You’ll tackle problems that normally require weeks of study, but with Cursor AI as your partner (and your brain keeping it honest), you can accomplish more than you thought possible.</p>
-<p><strong>The new reality:</strong> The four stages of competence are Ignorance → Awareness → Learning → Mastery. AI lets us produce Mastery-level work while operating primarily in the Awareness stage. I focus on awareness training, you leverage AI for execution, and together we create outputs that used to require years of dedicated study.</p>
-</div>
-</div>
-</section>
-<section id="data-and-methodology" class="level2">
-<h2 class="anchored" data-anchor-id="data-and-methodology">Data and Methodology</h2>
-<p>We analyze the Ames Housing dataset, which contains detailed information about residential properties sold in Ames, Iowa from 2006 to 2010. This dataset is ideal for our analysis because:</p>
-<ul>
-<li><strong>Anticipated Non-linear Relationships:</strong> Real estate prices have complex, non-linear relationships between features (e.g., square footage in wealthy vs.&nbsp;poor zip codes affects price differently)</li>
-<li><strong>Mixed Data Types:</strong> Contains both categorical (zipCode) and numerical variables</li>
-<li><strong>Real-world Complexity:</strong> Captures the kind of messy, real-world data where ensemble methods excel</li>
-</ul>
-<p>Since we anticipate non-linear relationships, random forests are well-suited to model the relationship between features and sale price.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Data prepared with zipCode as categorical variable</code></pre>
@@ -136,17 +100,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</div>
-</section>
 <section id="results-the-power-of-ensemble-learning" class="level2">
 <h2 class="anchored" data-anchor-id="results-the-power-of-ensemble-learning">Results: The Power of Ensemble Learning</h2>
 <p>Our analysis reveals a clear pattern: <strong>more trees consistently improve performance</strong>. Let’s examine the results and understand why this happens.</p>
 <section id="performance-trends" class="level3">
 <h3 class="anchored" data-anchor-id="performance-trends">Performance Trends</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>  Trees RMSE_Test RMSE_Train R_squared
@@ -183,10 +145,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="overfitting-visualization-and-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="overfitting-visualization-and-analysis">2. Overfitting Visualization and Analysis</h3>
-<p><strong>Your Task:</strong> Compare decision trees vs random forests in terms of overfitting.</p>
-<p><strong>Create one visualization with two side-by-side plots showing:</strong> - Decision trees: How performance changes with tree complexity (max depth) - Random forests: How performance changes with number of trees</p>
-<p><strong>Your analysis should explain:</strong> - Why individual decision trees overfit as they become more complex - Why random forests don’t suffer from the same overfitting problem - The mechanisms that prevent overfitting in random forests (bootstrap sampling, random feature selection, averaging)</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-important callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -196,11 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Create a side-by-side comparison showing: 1. <strong>Decision Trees:</strong> Training vs Test RMSE as max depth increases (showing overfitting) 2. <strong>Random Forests:</strong> Training vs Test RMSE as number of trees increases (no overfitting)</p>
-<ul>
-<li>Use the same y-axis limits for both side-by-side plots so it clearly shows whether random forests outperform decision trees.</li>
-<li>Do not <code>echo</code> the code that creates the visualization</li>
-</ul>
+
 </div>
 </div>
 <div class="cell">
@@ -217,10 +172,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="linear-regression-vs-random-forest-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="linear-regression-vs-random-forest-comparison">3. Linear Regression vs Random Forest Comparison</h3>
 <p><strong>Your Task:</strong> Compare random forests to linear regression baseline.</p>
-<p><strong>Create a comparison table showing:</strong> - Linear Regression RMSE - Random Forest (1 tree) RMSE<br>
-- Random Forest (100 trees) RMSE - Random Forest (1000 trees) RMSE</p>
-<p><strong>Your analysis should address:</strong> - The improvement in RMSE when going from 1 tree to 100 trees - Whether switching from linear regression to 100-tree random forest shows similar improvement - When random forests are worth the added complexity vs linear regression - The trade-offs between interpretability and performance</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-important callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -230,14 +182,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Create a clear table comparing:</p>
-<ul>
-<li>Linear Regression</li>
-<li>Random Forest (1 tree)</li>
-<li>Random Forest (100 trees)</li>
-<li>Random Forest (1000 trees)</li>
-</ul>
-<p>Include percentage improvements over linear regression for each random forest model.</p>
+
 </div>
 </div>
 <div class="cell">
