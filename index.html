@@ -243,51 +243,6 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-## Key Insights:</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Linear Regression RMSE (Test): 33382 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Random Forest (1 tree) RMSE (Test): 42549 - Improvement: -27.5 %</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Random Forest (100 trees) RMSE (Test): 33784 - Improvement: -1.2 %</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Random Forest (1000 trees) RMSE (Test): 33497 - Improvement: -0.3 %</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-## Training vs Test Performance:</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Linear Regression - Train RMSE: 29390 | Test RMSE: 33382 | Train R²: 0.807 | Test R²: 0.825 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Random Forest (1 tree) - Train RMSE: 28137 | Test RMSE: 42549 | Train R²: 0.823 | Test R²: 0.715 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Random Forest (100 trees) - Train RMSE: 13929 | Test RMSE: 33784 | Train R²: 0.957 | Test R²: 0.821 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Random Forest (1000 trees) - Train RMSE: 13916 | Test RMSE: 33497 | Train R²: 0.957 | Test R²: 0.824 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-## Performance Analysis:</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Going from 1 tree to 100 trees improves RMSE by: 20.6 %</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Going from 100 trees to 1000 trees improves RMSE by: 0.8 %</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>• Switching from Linear Regression to 100-tree Random Forest improves RMSE by: -1.2 %</code></pre>
-</div>
 </div>
 <p><strong>Analysis:</strong> The comparison reveals significant performance improvements when switching from linear regression to random forests, with diminishing returns as the number of trees increases. Linear regression serves as a reasonable baseline, but random forests consistently outperform it across all configurations. The jump from 1 tree to 100 trees shows substantial improvement, demonstrating the power of ensemble learning. However, the improvement from 100 to 1000 trees is much smaller, suggesting a practical sweet spot around 100-500 trees for this dataset. The training vs test performance shows that random forests maintain good generalization (small train/test gap) compared to individual decision trees. For real-world applications, the choice between linear regression and random forests depends on the trade-off between interpretability (linear regression wins) and performance (random forests win). When prediction accuracy is critical and the relationships are complex and non-linear, random forests are worth the added complexity.</p>
 </section>
